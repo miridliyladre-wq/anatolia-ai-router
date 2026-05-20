@@ -10,12 +10,58 @@ app.use(express.json({ limit: "18mb" }));
 const PORT = process.env.PORT || 3000;
 
 const providers = [
-  { name: "deepseek", apiKey: process.env.DEEPSEEK_API_KEY, type: "openai-compatible", url: "https://api.deepseek.com/chat/completions", model: "deepseek-chat", vision: false },
-  { name: "openai", apiKey: process.env.OPENAI_API_KEY, type: "openai-compatible", url: "https://api.openai.com/v1/chat/completions", model: "gpt-4o-mini", vision: true },
-  { name: "gemini", apiKey: process.env.GEMINI_API_KEY, type: "gemini", model: "model: "gemini-2.0-flash"", vision: true },
-  { name: "groq", apiKey: process.env.GROQ_API_KEY, type: "openai-compatible", url: "https://api.groq.com/openai/v1/chat/completions", model: "llama-3.1-8b-instant", vision: false },
-  { name: "mistral", apiKey: process.env.MISTRAL_API_KEY, type: "openai-compatible", url: "https://api.mistral.ai/v1/chat/completions", model: "mistral-small-latest", vision: false },
-  { name: "anthropic", apiKey: process.env.ANTHROPIC_API_KEY, type: "anthropic", url: "https://api.anthropic.com/v1/messages", model: "claude-3-5-haiku-latest", vision: false }
+  {
+    name: "deepseek",
+    apiKey: process.env.DEEPSEEK_API_KEY,
+    type: "openai-compatible",
+    url: "https://api.deepseek.com/chat/completions",
+    model: "deepseek-chat",
+    vision: false
+  },
+
+  {
+    name: "openai",
+    apiKey: process.env.OPENAI_API_KEY,
+    type: "openai-compatible",
+    url: "https://api.openai.com/v1/chat/completions",
+    model: "gpt-4o-mini",
+    vision: true
+  },
+
+  {
+    name: "gemini",
+    apiKey: process.env.GEMINI_API_KEY,
+    type: "gemini",
+    model: "gemini-2.0-flash",
+    vision: true
+  },
+
+  {
+    name: "groq",
+    apiKey: process.env.GROQ_API_KEY,
+    type: "openai-compatible",
+    url: "https://api.groq.com/openai/v1/chat/completions",
+    model: "llama-3.1-8b-instant",
+    vision: false
+  },
+
+  {
+    name: "mistral",
+    apiKey: process.env.MISTRAL_API_KEY,
+    type: "openai-compatible",
+    url: "https://api.mistral.ai/v1/chat/completions",
+    model: "mistral-small-latest",
+    vision: false
+  },
+
+  {
+    name: "anthropic",
+    apiKey: process.env.ANTHROPIC_API_KEY,
+    type: "anthropic",
+    url: "https://api.anthropic.com/v1/messages",
+    model: "claude-3-5-haiku-latest",
+    vision: false
+  }
 ];
 
 function checkAppSecret(req) {
